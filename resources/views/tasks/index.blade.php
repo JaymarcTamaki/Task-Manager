@@ -46,5 +46,5 @@
     </tbody>
 </table>
 
-{{ $tasks->links('pagination::bootstrap-5') }}
+{{ $tasks->links('pagination::bootstrap-4') }}
 @endsection
