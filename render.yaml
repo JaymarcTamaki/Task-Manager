@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: task-manager-laravel
+    env: php
+    plan: free
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+      php artisan migrate --force
+    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-cvue8memcj7s73ccm72g-a
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: task_manager_db_99a7
+      - key: DB_USERNAME
+        value: task_manager_db_99a7_user
+      - key: DB_PASSWORD
+        value: KwTQWcMOPnIiWgd36S25UvEuuamkSoqw
