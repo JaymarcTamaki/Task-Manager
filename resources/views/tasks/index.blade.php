@@ -7,6 +7,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Description</th>
             <th>Due Date</th>
             <th>Status</th>
             <th>Actions</th>
@@ -16,6 +17,7 @@
     @foreach($tasks as $task)
         <tr>
             <td>{{ $task->title }}</td>
+            <td style="max-width: 200px; word-wrap: break-word;">{{ $task->description }}</td>
             <td>{{ $task->due_date }}</td>
             <td>
                 @if($task->is_completed)
@@ -46,5 +48,5 @@
     </tbody>
 </table>
 
-{{ $tasks->links('pagination::bootstrap-4') }}
+{{ $tasks->links('pagination::bootstrap-5') }}
 @endsection
