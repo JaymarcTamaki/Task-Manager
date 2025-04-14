@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: task-manager
+    env: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://task-manager.onrender.com # Update this after first deploy
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-cvue8memcj7s73ccm72g-a
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: task_manager_db_99a7
+      - key: DB_USERNAME
+        value: task_manager_db_99a7_user
+      - key: DB_PASSWORD
+        value: KwTQWcMOPnIiWgd36S25UvEuuamkSoqw
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: APP_KEY
+        value: base64:9LSugJ5YlkOz7EeUsfz0Px08e3LlQ8Y5VXNwhgbBrK0=
