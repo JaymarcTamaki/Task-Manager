@@ -24,5 +24,10 @@ RUN chown -R www-data:www-data /var/www
 # Expose port (not strictly necessary for Render)
 EXPOSE 8000
 
-# Start Laravel server
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
+# Clear and cache Laravel config, routes, and views
+CMD php artisan config:clear \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache \
+    && php artisan migrate --force \
+    && php artisan serve --host=0.0.0.0 --port=8000
