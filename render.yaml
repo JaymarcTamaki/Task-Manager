@@ -11,7 +11,7 @@ services:
       - key: APP_DEBUG
         value: false
       - key: APP_URL
-        value: https://task-manager.onrender.com # Update this after first deploy
+        value: https://task-manager-15rk.onrender.com # Update this after first deploy
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
